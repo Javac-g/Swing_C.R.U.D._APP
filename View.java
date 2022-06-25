@@ -10,6 +10,7 @@ public class View extends JFrame implements ActionListener {
     JPanel main = new JPanel();
     JPanel footer =new JPanel();
 
+
     //body    section
     JLabel m1 = new JLabel("Menu");
     JLabel m2 = new JLabel("1 - add");
@@ -24,6 +25,7 @@ public class View extends JFrame implements ActionListener {
         main.setLayout(new BorderLayout());
 
         header.setBorder(BorderFactory.createLineBorder(Color.RED));
+        header.setSize(100,100);
 
         header.setLayout(new FlowLayout(FlowLayout.CENTER));
 
@@ -36,6 +38,7 @@ public class View extends JFrame implements ActionListener {
         body.add(m3);
         body.add(m4);
         body.add(m5);
+
         main.add(header,BorderLayout.CENTER);
         main.add(body,BorderLayout.WEST);
         frame.add(main);
