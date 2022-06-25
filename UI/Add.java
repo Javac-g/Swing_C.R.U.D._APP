@@ -32,9 +32,9 @@ public class Add extends JFrame implements ActionListener {
     JButton Add = new JButton("ADD");
     JButton Find = new JButton("FIND");
     JButton Update = new JButton("UPDATE");
-    JButton Delete = new JButton("DELETE");;
+    JButton Delete = new JButton("DELETE");
     public Add(){
-
+        setTitle("ADD USER");
         JPanel body = new JPanel(){
             @Override
             public Dimension getPreferredSize(){
