@@ -1,3 +1,5 @@
+package Service;
+
 public class Student {
 
     String name,group;

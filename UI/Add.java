@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 public class Add extends JFrame implements ActionListener {
 
 
-    JLabel m1 = new JLabel("Adding new Student");
+    JLabel m1 = new JLabel("Adding new Service.Student");
     JLabel m2 = new JLabel("Name: ");
     JLabel m3 = new JLabel("Group: ");
     JLabel m4 = new JLabel("ID: ");
@@ -28,11 +28,8 @@ public class Add extends JFrame implements ActionListener {
     JTextField choice = new JTextField();
     JButton Menu = new JButton("MENU");
 
-    JButton GO = new JButton("GO");
     JButton Add = new JButton("ADD");
-    JButton Find = new JButton("FIND");
-    JButton Update = new JButton("UPDATE");
-    JButton Delete = new JButton("DELETE");
+
     public Add(){
         setTitle("ADD USER");
         JPanel body = new JPanel(){
@@ -92,12 +89,9 @@ public class Add extends JFrame implements ActionListener {
         m8.setBounds(250,350,55,20);
 
         //Buttons bounds
-        Menu.setBounds(110,450,200,20);
+        Menu.setBounds(10,450,200,20);
         Add.setBounds(10,380,200,20);
-        Find.setBounds(10,410,200,20);
-        Update.setBounds(220,380,200,20);
-        Delete.setBounds(220,410,200,20);
-        GO.setBounds(440,380,60,150);
+
 
 
         //TextFields bounds
@@ -134,11 +128,8 @@ public class Add extends JFrame implements ActionListener {
         body.add(m8);
         body.add(choice);
         body.add(Add);
-        body.add(Find);
-        body.add(Update);
-        body.add(Delete);
         body.add(Menu);
-        body.add(GO);
+
         //setContentPane(body);
 
 

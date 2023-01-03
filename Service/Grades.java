@@ -1,3 +1,5 @@
+package Service;
+
 public class Grades {
 
     Integer M,H,E;
