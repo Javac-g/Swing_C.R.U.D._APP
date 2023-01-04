@@ -107,6 +107,7 @@ public class Add extends JFrame implements ActionListener {
         m8.setOpaque(true);
         m8.setForeground(Color.WHITE);
         m8.setBackground(Color.RED);
+        Add.addActionListener(a);
 
 
         body.add(line);

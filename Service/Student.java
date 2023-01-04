@@ -2,13 +2,23 @@ package Service;
 
 public class Student {
 
-    String name,group;
-    Integer id;
-    Grades grades;
+    private String name,sname,group;
+    private Integer id;
+    private Grades grades;
 
     public String getName() {
         return name;
     }
+
+    public String getSname() {
+        return sname;
+    }
+
+    public void setSname(String sname) {
+        this.sname = sname;
+    }
+
+
 
     public void setName(String name) {
         this.name = name;
