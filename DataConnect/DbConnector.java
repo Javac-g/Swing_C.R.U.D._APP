@@ -20,7 +20,7 @@ public class DbConnector {
         return con.prepareStatement(query);
     }
     private void execute(PreparedStatement stmt) throws SQLException {
-        stmt.execute();
+        stmt.executeQuery();
     }
 
     public void addUser(int id,String fName,String sName,String group,int math,int english,int history) throws SQLException {
@@ -29,11 +29,7 @@ public class DbConnector {
         statement = getStatement(query,con);
         execute(statement);
     }
-    public Student findUser(int findid) throws SQLException {
-        String query = "SELECT * fROM  journal WHERE id = '"+findid+"'";
-        con = getConnection();
-        statement = getStatement(query,con);
-        result = statement.executeQuery();
+    private Student getStudent(ResultSet result) throws SQLException {
         Student student = new Student();
         student.setId(result.getInt(1));
         student.setName(result.getString(2));
@@ -43,6 +39,16 @@ public class DbConnector {
         student.getGrades().setE(result.getInt(6));
         student.getGrades().setH(result.getInt(7));
         return student;
+    }
+    private ResultSet getResult() throws SQLException {
+        return statement.executeQuery();
+    }
+    public Student findUser(int findid) throws SQLException {
+        String query = "SELECT * fROM  journal WHERE id = '"+findid+"'";
+        con = getConnection();
+        statement = getStatement(query,con);
+        result = statement.executeQuery();
+        return getStudent(result);
     }
     
 }
