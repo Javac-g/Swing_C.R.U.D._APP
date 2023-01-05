@@ -19,15 +19,13 @@ public class DbConnector {
     private PreparedStatement getStatement(String query,Connection con) throws SQLException {
         return con.prepareStatement(query);
     }
-    private void execute(PreparedStatement stmt) throws SQLException {
-        stmt.executeQuery();
-    }
+
 
     public void addUser(int id,String fName,String sName,String group,int math,int english,int history) throws SQLException {
         String query = "INSERT INTO journal VALUES ('"+ id + "','"+ fName +"','"+ sName +"','"+group+"','"+math+"','"+english+"','"+history+"')";
         con = getConnection();
         statement = getStatement(query,con);
-        execute(statement);
+        statement.execute();
     }
     private Student getStudent(ResultSet result) throws SQLException {
         Student student = new Student();

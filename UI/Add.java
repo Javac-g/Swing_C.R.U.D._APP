@@ -1,5 +1,6 @@
 package UI;
 
+import DataConnect.DbConnector;
 import javafx.scene.text.FontWeight;
 
 import javax.swing.*;
@@ -7,6 +8,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class Add extends JFrame implements ActionListener {
 
@@ -19,12 +21,12 @@ public class Add extends JFrame implements ActionListener {
     JLabel m6 = new JLabel("History Grade: ");
     JLabel m7 = new JLabel("English Grade: ");
     JLabel m8 = new JLabel(" Controls ");
-    JTextField N = new JTextField();
-    JTextField G = new JTextField();
-    JTextField I = new JTextField();
-    JTextField M = new JTextField();
-    JTextField H = new JTextField();
-    JTextField E = new JTextField();
+    JTextField N = new JTextField("N");
+    JTextField G = new JTextField("G");
+    JTextField I = new JTextField("I");
+    JTextField M = new JTextField("M");
+    JTextField H = new JTextField("H");
+    JTextField E = new JTextField("E");
     JTextField choice = new JTextField();
     JButton Menu = new JButton("MENU");
 
@@ -107,7 +109,7 @@ public class Add extends JFrame implements ActionListener {
         m8.setOpaque(true);
         m8.setForeground(Color.WHITE);
         m8.setBackground(Color.RED);
-        Add.addActionListener(a);
+        Add.addActionListener(this);
 
 
         body.add(line);
@@ -147,6 +149,20 @@ public class Add extends JFrame implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
+        JButton action = (JButton) e.getSource();
 
+        if (action.equals(Add)){
+            DbConnector db = new DbConnector();
+            try {
+                db.addUser(Integer.parseInt(I.getText()),
+                                            N.getText(),"Nonamov",
+                                            G.getText(),
+                            Integer.parseInt(M.getText()),
+                            Integer.parseInt(E.getText()),
+                            Integer.parseInt(H.getText()));
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        }
     }
 }
