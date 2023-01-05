@@ -1,6 +1,6 @@
 package Service;
 
-import UI.Add;
+import UI.AddUser;
 import UI.Menu;
 
 public class Controller {
@@ -10,7 +10,7 @@ public class Controller {
     public void init(){
 
         Menu menu = new Menu();
-        Add add = new Add();
+        AddUser addUser = new AddUser();
 
 
     }

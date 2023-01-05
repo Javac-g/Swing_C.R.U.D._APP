@@ -1,38 +1,37 @@
 package UI;
 
 import DataConnect.DbConnector;
-import javafx.scene.text.FontWeight;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
-public class Add extends JFrame implements ActionListener {
+public class AddUser extends JFrame implements ActionListener {
 
 
-    JLabel m1 = new JLabel("Adding new Service.Student");
+   public JLabel m1 = new JLabel("Adding Student");
     JLabel m2 = new JLabel("Name: ");
+    JLabel m9 = new JLabel("Second Name: ");
     JLabel m3 = new JLabel("Group: ");
     JLabel m4 = new JLabel("ID: ");
     JLabel m5 = new JLabel("Math Grade: ");
     JLabel m6 = new JLabel("History Grade: ");
     JLabel m7 = new JLabel("English Grade: ");
     JLabel m8 = new JLabel(" Controls ");
-    JTextField N = new JTextField("N");
-    JTextField G = new JTextField("G");
-    JTextField I = new JTextField("I");
-    JTextField M = new JTextField("M");
-    JTextField H = new JTextField("H");
-    JTextField E = new JTextField("E");
+    JTextField N = new JTextField();
+    JTextField G = new JTextField();
+    JTextField I = new JTextField();
+    JTextField M = new JTextField();
+    JTextField H = new JTextField();
+    JTextField E = new JTextField();
     JTextField choice = new JTextField();
     JButton Menu = new JButton("MENU");
 
     JButton Add = new JButton("ADD");
 
-    public Add(){
+    public AddUser(){
         setTitle("ADD USER");
         JPanel body = new JPanel(){
             @Override
@@ -65,6 +64,7 @@ public class Add extends JFrame implements ActionListener {
 
         //Labels bounds
         m1.setBounds(250,10,600,20);
+        m9.setBounds(50,50,120,20);
         m1.setOpaque(true);
         m1.setBackground(Color.RED);
         m1.setForeground(Color.WHITE);
@@ -107,6 +107,7 @@ public class Add extends JFrame implements ActionListener {
 
 
         m8.setOpaque(true);
+        m9.setOpaque(true);
         m8.setForeground(Color.WHITE);
         m8.setBackground(Color.RED);
         Add.addActionListener(this);
@@ -119,6 +120,7 @@ public class Add extends JFrame implements ActionListener {
         body.add(m2);
         body.add(N);
         body.add(m3);
+        body.add(m9);
         body.add(G);
         body.add(m4);
         body.add(I);
@@ -147,9 +149,13 @@ public class Add extends JFrame implements ActionListener {
         setVisible(true);
 
     }
+    public void clearAll(){
+
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton action = (JButton) e.getSource();
+        m1.setText("Adding Student");
 
         if (action.equals(Add)){
             DbConnector db = new DbConnector();
@@ -160,9 +166,13 @@ public class Add extends JFrame implements ActionListener {
                             Integer.parseInt(M.getText()),
                             Integer.parseInt(E.getText()),
                             Integer.parseInt(H.getText()));
+
             } catch (SQLException ex) {
                 throw new RuntimeException(ex);
             }
+
         }
+        m1.setText("Saved");
+
     }
 }

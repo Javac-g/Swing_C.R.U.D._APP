@@ -10,7 +10,7 @@ public class Menu extends JFrame implements ActionListener {
 
 
     JLabel m1 = new JLabel("MENU");
-    JLabel m2 = new JLabel("1 - Add new person");
+    JLabel m2 = new JLabel("1 - AddUser new person");
     JLabel m3 = new JLabel("2 - Find person");
     JLabel m4 = new JLabel("3 - Update person");
     JLabel m5 = new JLabel("4 - Delete person");
