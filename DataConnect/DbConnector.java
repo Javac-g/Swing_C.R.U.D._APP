@@ -37,9 +37,7 @@ public class DbConnector {
             throw new RuntimeException(e);
         }
     }
-    public void closeResultSet() throws SQLException {
-        result.close();
-    }
+
 
     public void addUser(int id,String fName,String sName,String group,int math,int english,int history) throws SQLException {
         String query = "INSERT INTO journal VALUES ('"+ id + "','"+ fName +"','"+ sName +"','"+group+"','"+math+"','"+english+"','"+history+"')";

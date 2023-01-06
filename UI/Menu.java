@@ -5,30 +5,34 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Menu extends JFrame implements ActionListener {
+public class Menu  implements ActionListener , UiCast{
 
 
-
+    private static UiCast ui;
+    JFrame frame = new JFrame();
     JLabel m1 = new JLabel("MENU");
-    JLabel m2 = new JLabel("1 - AddUser new person");
-    JLabel m3 = new JLabel("2 - Find person");
-    JLabel m4 = new JLabel("3 - Update person");
-    JLabel m5 = new JLabel("4 - Delete person");
+    JLabel m2 = new JLabel("Add person");
+    JLabel m3 = new JLabel("Find person");
+    JLabel m4 = new JLabel("Update person");
+    JLabel m5 = new JLabel("Delete person");
 
 
 
 
-    JTextField choice = new JTextField();
+
 
     JButton Menu = new JButton("MENU");
-    JButton GO = new JButton("GO");
+
     JButton Add = new JButton("ADD");
     JButton Find = new JButton("FIND");
     JButton Update = new JButton("UPDATE");
-    JButton Delete = new JButton("DELETE");;
+    JButton Delete = new JButton("DELETE");
+    public void addCast(){
+        ui = new AddUser();
+    }
 
-    public Menu(){
-        setTitle("MENU");
+    public void createMenu(){
+        frame.setTitle("MENU");
         JPanel body = new JPanel(){
             @Override
             public Dimension getPreferredSize(){
@@ -38,25 +42,33 @@ public class Menu extends JFrame implements ActionListener {
         };
         body.setLayout(null);
         Add.setOpaque(true);
-        Add.setForeground(Color.RED);
-        Add.setBackground(Color.BLACK);
-//        body.setBackground(Color.DARK_GRAY);
+
+        Add.setForeground(Color.WHITE);
+        Add.setBackground(Color.RED);
+
+        Find.setForeground(Color.WHITE);
+        Find.setBackground(Color.RED);
+
+        Update.setForeground(Color.WHITE);
+        Update.setBackground(Color.RED);
+
+        Delete.setForeground(Color.WHITE);
+        Delete.setBackground(Color.RED);
+
+        body.setBackground(Color.BLACK);
 
         JLabel line = new JLabel();
         line.setOpaque(true);
         line.setBackground(Color.RED);
 
-        JLabel line2 = new JLabel();
-        line2.setOpaque(true);
-        line2.setBackground(Color.RED);
+        JLabel endline = new JLabel();
+        endline.setOpaque(true);
+        endline.setBackground(Color.RED);
 
-        JLabel line3 = new JLabel();
-        line3.setOpaque(true);
-        line3.setBackground(Color.RED);
 
         line.setBounds(1,10,250,20);
-        line2.setBounds(1,350,250,20);
-        line3.setBounds(305,350,295,20);
+        endline.setBounds(1,260,599,20);
+
 
         //Labels bounds
         m1.setBounds(250,10,600,20);
@@ -66,6 +78,7 @@ public class Menu extends JFrame implements ActionListener {
 
         m2.setOpaque(true);
 
+
         m3.setOpaque(true);
 
         m4.setOpaque(true);
@@ -73,61 +86,63 @@ public class Menu extends JFrame implements ActionListener {
         m5.setOpaque(true);
 
 
-        m2.setBounds(10,50,120,20);
-        m3.setBounds(10,100,120,20);
-        m4.setBounds(10,150,120,20);
-        m5.setBounds(10,200,120,20);
+        m2.setBounds(160,50,120,20);
+        m3.setBounds(160,100,120,20);
+        m4.setBounds(160,150,120,20);
+        m5.setBounds(160,200,120,20);
 
 
         //Buttons bounds
-        Menu.setBounds(110,450,200,20);
-        Add.setBounds(10,380,200,20);
-        Find.setBounds(10,410,200,20);
-        Update.setBounds(220,380,200,20);
-        Delete.setBounds(220,410,200,20);
-        GO.setBounds(440,380,60,150);
+//
+        Add.setBounds(290,50,120,20);
+        Find.setBounds(290,100,120,20);
+        Update.setBounds(290,150,120,20);
+        Delete.setBounds(290,200,120,20);
 
 
         //TextFields bounds
 
-        choice.setBounds(510,380,60,150);
+
 
 
 
 
 
         body.add(line);
-        body.add(line2);
-        body.add(line3);
+        body.add(endline);
         body.add(m1);
         body.add(m2);
         body.add(m3);
         body.add(m4);
         body.add(m5);
-        body.add(choice);
+
         body.add(Add);
         body.add(Find);
         body.add(Update);
         body.add(Delete);
         body.add(Menu);
-        body.add(GO);
-        //setContentPane(body);
 
 
 
-        add(body);
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        pack();
-        setLocationRelativeTo(null);
-        setSize(600,600);
-        setResizable(false);
-        setVisible(true);
+        frame.add(body);
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setSize(600,600);
+        frame.setResizable(false);
+        frame.setVisible(true);
 
     }
     @Override
     public void actionPerformed(ActionEvent e) {
+        JButton action = (JButton) e.getSource();
+        if(action.equals(Add)){
+            addCast();
+        }else if (action.equals(Find)){
 
+        }
     }
 
 }

@@ -3,7 +3,7 @@ package UI;
 import javax.swing.*;
 import java.awt.*;
 
-public class Find extends JFrame{
+public class Find extends JFrame implements UiCast{
     JLabel m1 = new JLabel("Finding Service.Student");
     JLabel m2 = new JLabel("Id: ");
 

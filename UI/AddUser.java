@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
-public class AddUser extends JFrame implements ActionListener {
+public class AddUser extends JFrame implements ActionListener,UiCast {
 
 
    public JLabel m1 = new JLabel("Adding Student");
