@@ -10,7 +10,8 @@ public class Controller {
 
     public void init(){
 
-        UiCast uiCast;
+        Menu menu = new Menu();
+
 
 
     }

@@ -5,10 +5,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Menu  implements ActionListener , UiCast{
+public class Menu extends JFrame  implements ActionListener , UiCast{
 
 
-    private static UiCast ui;
+
     JFrame frame = new JFrame();
     JLabel m1 = new JLabel("MENU");
     JLabel m2 = new JLabel("Add person");
@@ -27,12 +27,10 @@ public class Menu  implements ActionListener , UiCast{
     JButton Find = new JButton("FIND");
     JButton Update = new JButton("UPDATE");
     JButton Delete = new JButton("DELETE");
-    public void addCast(){
-        ui = new AddUser();
-    }
 
-    public void createMenu(){
-        frame.setTitle("MENU");
+
+    public Menu(){
+        setTitle("MENU");
         JPanel body = new JPanel(){
             @Override
             public Dimension getPreferredSize(){
@@ -125,21 +123,26 @@ public class Menu  implements ActionListener , UiCast{
 
 
 
-        frame.add(body);
+        add(body);
 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setSize(600,600);
-        frame.setResizable(false);
-        frame.setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        pack();
+        setLocationRelativeTo(null);
+        setSize(600,600);
+        setResizable(false);
+        setVisible(true);
 
     }
+    public void createAdd(){
+        AddUser addUser = new AddUser();
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton action = (JButton) e.getSource();
-        if(action.equals(Add)){
-            addCast();
+        if(action.equals(this.Add)){
+
+            createAdd();
         }else if (action.equals(Find)){
 
         }

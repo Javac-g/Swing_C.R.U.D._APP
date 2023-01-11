@@ -158,6 +158,7 @@ public class AddUser extends JFrame implements ActionListener,UiCast {
         m1.setText("Adding Student");
 
         if (action.equals(Add)){
+            System.out.println("Add");
             DbConnector db = new DbConnector();
             try {
                 db.addUser(Integer.parseInt(I.getText()),
